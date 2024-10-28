@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+div {
+    background-color: #ffffff;
+    padding: 4vw;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80vw;
+    max-width: 400px;
+}
+
+/* Encabezado */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Etiquetas */
+label {
+    font-size: 4vw; /* Ajuste relativo al ancho de la ventana */
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+/* Campos de entrada */
+input {
+    width: 100%;
+    padding: 3vw;
+    font-size: 3.5vw;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Botón */
+button {
+    width: 100%;
+    padding: 3vw;
+    font-size: 4vw;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 768px) {
+    label {
+        font-size: 1.2em;
+    }
+
+    input {
+        font-size: 1em;
+        padding: 0.5em;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 0.5em 1em;
+    }
+}

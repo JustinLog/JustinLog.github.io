@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Mesa Reservada</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Reservas de Mesas</h1>
+    </header>
+
+    <section id="consultar-mesa-reservada">
+        <h2>Mesas Reservadas</h2>
+        <form id="filtro">
+            <label for="dia">Filtrar por Día:</label>
+            <input type="date" id="dia" name="dia">
+            
+            <label for="horario">Filtrar por Horario:</label>
+            <select id="horario" name="horario">
+                <option value="matutino">Matutino</option>
+                <option value="tardio">Tardío</option>
+                <option value="nocturno">Nocturno</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+
+        <table id="tabla-reservas">
+            <thead>
+                <tr>
+                    <th>Mesa</th>
+                    <th>Horario</th>
+                    <th>Estado</th>
+                    <th>Cliente</th>
+                    <th>Mozo</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="horario">Matutino</td>
+                    <td class="estado">Ocupado</td>
+                    <td class="cliente">Juan Vargas</td>
+                    <td class="mozo">Joel Linares</td>
+                    <td><button onclick="finalizarReserva(this)" class="button-r">Finalizar Reserva</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="horario">-</td>
+                    <td class="estado">Disponible</td>
+                    <td class="cliente">-</td>
+                    <td class="mozo">-</td>
+                    <td><button onclick="abrirVentana()" class="button-g">Registrar Reserva</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <script>
+        function abrirVentana() {
+            window.open("../RegistroData/index.html", "VentanaEmergente", "width=800,height=1200");
+        }
+
+        function finalizarReserva(button) {
+            // Cambiar el texto del botón a "Registrar Reserva"
+            button.textContent = "Registrar Reserva";
+            button.className = "button-g"; // Cambiar estilo de botón a verde
+            button.abrirVentana = "../RegistroData/index.html"
+
+            // Cambiar el estado a "Disponible"
+            const mozoCell= button.parentNode.parentNode.querySelector(".mozo");
+            mozoCell.textContent = "-";
+            const horarioCell = button.parentNode.parentNode.querySelector(".horario");
+            horarioCell.textContent = "-";
+            const clienteCell = button.parentNode.parentNode.querySelector(".cliente");
+            clienteCell.textContent = "-";
+            const estadoCell = button.parentNode.parentNode.querySelector(".estado");
+            estadoCell.textContent = "Disponible";
+
+            // Asignar la función para abrir la ventana emergente
+            button.onclick = abrirVentana;
+        }
+    </script>
+</body>
+</html>
